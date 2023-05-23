@@ -1,10 +1,9 @@
+package Leetcode;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class MatchingRule {
-    public static void main(String[] args) {
-        
-    }
-
     public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue){
         if(ruleKey.equals("type")){
             return (int) items.stream().map(a -> a.get(0)).filter(s -> s.equals(ruleValue)).count();
