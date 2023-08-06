@@ -2,35 +2,24 @@ package Leetcode;
 
 public class JumpGame {
     public static void main(String[] args) {
-        System.out.println(canReach("0000000000", 2, 5));
+        int[] nums = {2, 3, 1, 1, 4};
+        System.out.println(canJump(nums));
     }
+    
 
-    public static boolean canReach(String s, int minJump, int maxJump) {
-        int size = s.length(), i = 0;
-        while(i < size-1){
-            while(s.charAt(i) != '0' && size > i){
-                i++;
-                if(s.charAt(i) != '0' && i == size-1){
-                    return false;
-                }
-            }
+    public static boolean canJump(int[] nums) {
+        int reach = 0;
 
-            int j = i+1;
-
-            while(s.charAt(j) != '0' && size > j){
-                j++;
-                if(size == j){
-                    return false;
-                }
-            }
-
-            if(i + minJump <= j && j <= Math.min(i+maxJump, size-1) && s.charAt(j) == '0'){
-                i = j;
-            }else{
+        for(int i = 0; i<nums.length; i++){
+            if(reach < i){
                 return false;
             }
+
+            // reach = Math.max(reach, i+nums[i]);
+
         }
 
-        return i == size-1;
+
+        return true;
     }
 }
